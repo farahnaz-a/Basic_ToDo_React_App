@@ -17,7 +17,7 @@ export default function Todo({todoArr, setTodoArr}) {
         
     }
     const deleteMe = (e) => {
-        const currentIndex = e.target.dataset.key;
+        const currentIndex = e.currentTarget.dataset.key;
         todoArr.splice(currentIndex, 1);
         setTodoArr([...todoArr])
     }
@@ -34,6 +34,9 @@ export default function Todo({todoArr, setTodoArr}) {
                 {todoArr.map((item, index) => (
                     <li key={Math.random()} className="card__body__list__item">
                         <input type="checkbox" className="card__body__list__item__checkbox edit-checkbox" />
+                        <span className="card__body__list__item__checkbox__indicator">
+                            <span className="card__body__list__item__checkbox__indicator__icons"></span>
+                        </span>
                         <span className="card__body__list__item__text">
                             <span className="card__body__list__item__text__inner">{item}</span>
                         </span>

@@ -42,7 +42,10 @@ export default function Form({todoArr, setTodoArr}){
                     <i className="bi bi-plus-lg"></i>
                     <span className="card__footer__btn__text">Add</span>
                 </button>           
-                <button style={{display :"none" }} className="update-btn card__footer__btn" onClick={updateMe}>Update</button>
+                <button style={{display :"none" }} className="update-btn card__footer__btn" onClick={updateMe}>
+                    <i className="bi bi-send-check"></i>
+                    <span className="card__footer__btn__text">Update</span>
+                </button>
             </div>
         </div>
     )

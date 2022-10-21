@@ -95,13 +95,87 @@ body{
    flex-shrink: 0;
 }
 
-.card__body__list__item__checkbox{
+.card__body__list__item__checkbox,
+.card__body__list__item__checkbox__indicator,
+.card__body__list__item__checkbox__indicator__icons
+{
+   display: inline-block;
    width: 2rem;
    height: 2rem;
-   border-radius: 50%;
-   margin-right: 2em;
    cursor: pointer;
+}
+
+.card__body__list__item__checkbox{
+   position: absolute;
+   border-radius: 50%;
    accent-color: var(--primary-color);
+   z-index: 2;
+   opacity: 0;
+}
+
+.card__body__list__item__checkbox__indicator{
+   position: relative;
+   margin-right: 2em;
+}
+
+.card__body__list__item__checkbox__indicator__icons{
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   border-radius: 50%;
+}
+
+.card__body__list__item__checkbox__indicator .card__body__list__item__checkbox__indicator__icons::before,
+.card__body__list__item__checkbox__indicator .card__body__list__item__checkbox__indicator__icons::after
+{
+   content: "";
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   border-radius: 50%;
+}
+
+.card__body__list__item__checkbox__indicator__icons::before{
+   z-index: 1;
+}
+
+.card__body__list__item__checkbox:checked ~ .card__body__list__item__checkbox__indicator .card__body__list__item__checkbox__indicator__icons::after{
+   background-color: var(--success-color);
+   border-color: var(--primary-color);
+}
+
+.card__body__list__item__checkbox__indicator__icons::after{
+   border: 0.3rem solid var(--text-color);
+}
+
+.card__body__list__item__checkbox:disabled,
+.card__body__list__item__checkbox:disabled ~ .card__body__list__item__checkbox__indicator
+{
+   user-select: none;
+   pointer-events: none;
+}
+
+.card__body__list__item__checkbox:disabled ~ .card__body__list__item__checkbox__indicator .card__body__list__item__checkbox__indicator__icons::before{
+   transform: translateX(50%) scale(0.7);
+   background-color: #ffffff;
+}
+
+.card__body__list__item__checkbox:disabled ~ .card__body__list__item__checkbox__indicator .card__body__list__item__checkbox__indicator__icons{
+   animation: rotate 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+}
+
+@keyframes rotate {
+   to{
+      transform: rotate(360deg);
+   }
+}
+
+.card__body__list__item__checkbox:disabled  ~ .card__body__list__item__checkbox__indicator .card__body__list__item__checkbox__indicator__icons::after{
+   border-color: var(--danger-color);
 }
 
 .card__body__list__item__btn-group{
