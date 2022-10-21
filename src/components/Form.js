@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import Todo from "./Todo";
 
 export default function Form({todoArr, setTodoArr}){ 
@@ -7,7 +6,7 @@ export default function Form({todoArr, setTodoArr}){
     const addMe = () => {
         const data = document.querySelector('.data').value;
         document.querySelector('.data').value = "";
-        if(data.trim() != ''){
+        if(data.trim() !== ''){
             document.querySelector('.data').setAttribute("placeholder", "Add Todo")
             todoArr.push(data)
             setTodoArr([...todoArr])
@@ -18,7 +17,7 @@ export default function Form({todoArr, setTodoArr}){
 
     const updateMe = () => {
         const data = document.querySelector('.data');
-        if(data.value != ''){
+        if(data.value !== ''){
             const currentIndex = data.dataset.key;
             todoArr.splice(parseInt(currentIndex), 1, data.value);
             setTodoArr([...todoArr])
