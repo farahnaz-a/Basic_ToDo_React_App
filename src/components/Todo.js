@@ -25,7 +25,7 @@ export default function Todo({todoArr, setTodoArr}) {
     return (
         <div className="card__body">
             {
-                todoArr.length == 0 &&
+                todoArr.length === 0 &&
                 <div className="alert alert--danger">
                     Todo list is empty.
                 </div>
